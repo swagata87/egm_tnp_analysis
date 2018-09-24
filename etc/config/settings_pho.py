@@ -3,18 +3,11 @@
 #############################################################
 # flag to be Tested
 flags = {
-    'passingVeto80X'    : '(passingVeto80X   == 1)',
-    'passingLoose80X'   : '(passingLoose80X  == 1)',
-    'passingMedium80X'  : '(passingMedium80X == 1)',
-    'passingTight80X'   : '(passingTight80X  == 1)',
-    'passingMVA80Xwp80' : '(passingMVA80Xwp80 == 1)',
-    'passingMVA80Xwp90' : '(passingMVA80Xwp90 == 1)',
-
-    'passingLoose94X'   : '(passingLoose94X  == 1)',
-    'passingMedium94X'  : '(passingMedium94X == 1)',
-    'passingTight94X'   : '(passingTight94X  == 1)',
-    'passingMVA94Xwp80' : '(passingMVA94Xwp80 == 1)',
-    'passingMVA94Xwp90' : '(passingMVA94Xwp90 == 1)',
+    'passingLoose100XV2'   : '(passingLoose100XV2  == 1)',
+    'passingMedium100XV2'  : '(passingMedium100XV2 == 1)',
+    'passingTight100XV2'   : '(passingTight100XV2  == 1)',
+    'passingMVA94XV2wp80' : '(passingMVA94XV2wp80 == 1)',
+    'passingMVA94XV2wp90' : '(passingMVA94XV2wp90 == 1)',
     }
 
 baseOutDir = 'results/Moriond18/tnpPhoID/runAll/'
@@ -66,9 +59,9 @@ weightName = 'weights_2016_runAll.totWeight'
 if not samplesDef['mcNom' ] is None: samplesDef['mcNom' ].set_weight(weightName)
 if not samplesDef['mcAlt' ] is None: samplesDef['mcAlt' ].set_weight(weightName)
 if not samplesDef['tagSel'] is None: samplesDef['tagSel'].set_weight(weightName)
-if not samplesDef['mcNom' ] is None: samplesDef['mcNom' ].set_puTree('/eos/cms/store/group/phys_egamma/soffi/TnP/ntuples_04162018-Legacy2016/Legacy16_V1/PU/mc/DY_madgraph_Moriond17_ele.pu.puTree.root')
-if not samplesDef['mcAlt' ] is None: samplesDef['mcAlt' ].set_puTree('/eos/cms/store/group/phys_egamma/soffi/TnP/ntuples_04162018-Legacy2016/Legacy16_V1/PU/mc/DY_amcatnlo_Moriond17_ele.pu.puTree.root')
-if not samplesDef['tagSel'] is None: samplesDef['tagSel'].set_puTree('/eos/cms/store/group/phys_egamma/soffi/TnP/ntuples_04162018-Legacy2016/Legacy16_V1/PU/mc/DY_madgraph_Moriond17_ele.pu.puTree.root')
+if not samplesDef['mcNom' ] is None: samplesDef['mcNom' ].set_puTree('/eos/cms/store/group/phys_egamma/swmukher/egmNtuple_V2ID_2016/PU/DY_madgraph_Moriond17_pho.pu.puTree.root')
+if not samplesDef['mcAlt' ] is None: samplesDef['mcAlt' ].set_puTree('/eos/cms/store/group/phys_egamma/swmukher/egmNtuple_V2ID_2016/PU/DY_amcatnlo_Moriond17_pho.pu.puTree.root')
+if not samplesDef['tagSel'] is None: samplesDef['tagSel'].set_puTree('/eos/cms/store/group/phys_egamma/swmukher/egmNtuple_V2ID_2016/PU/DY_madgraph_Moriond17_pho.pu.puTree.root')
 
 
 

@@ -18,7 +18,7 @@ for sName in tnpSamples.Legacy2016_94X.keys():
     trees['pho'] = 'tnpPhoIDs'
 #    trees['rec'] = 'GsfElectronToSC'
     for tree in trees:
-        dirout =  '/eos/cms/store/group/phys_egamma/soffi/TnP/ntuples_04162018-Legacy2016/Legacy16_V1/PU/mc/'
+        dirout =  '/eos/cms/store/group/phys_egamma/swmukher/egmNtuple_V2ID_2016/PU/'
         mkdir(dirout)
         
         if   puType == 0 : sample.set_puTree( dirout + '%s_%s.pu.puTree.root'   % (sample.name,tree) )

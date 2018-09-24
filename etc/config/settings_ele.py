@@ -7,21 +7,19 @@ cutpass90 = '(( abs(probe_sc_eta) < 0.8 && probe_Ele_nonTrigMVA > %f ) ||  ( abs
 
 # flag to be Tested
 flags = {
-    'passingVeto80X'    : '(passingVeto80X   == 1)',
-    'passingLoose80X'   : '(passingLoose80X  == 1)',
-    'passingMedium80X'  : '(passingMedium80X == 1)',
-    'passingTight80X'   : '(passingTight80X  == 1)',
-    'passingMVA80Xwp80' : '(passingMVA80Xwp80 == 1)',
-    'passingMVA80Xwp90' : '(passingMVA80Xwp90 == 1)',
+    'passingVeto94XV2'    : '(passingVeto94XV2   == 1)',
+    'passingLoose94XV2'   : '(passingLoose94XV2  == 1)',
+    'passingMedium94XV2'  : '(passingMedium94XV2 == 1)',
+    'passingTight94XV2'   : '(passingTight94XV2  == 1)',
+    'passingMVA94Xwp80isoV2' : '(passingMVA94Xwp80isoV2 == 1)',
+    'passingMVA94Xwp90isoV2' : '(passingMVA94Xwp90isoV2 == 1)',
+    'passingMVA94Xwp80noisoV2' : '(passingMVA94Xwp80noisoV2 == 1)',
+    'passingMVA94Xwp90noisoV2' : '(passingMVA94Xwp90noisoV2 == 1)',
+    'passingMVA94XwpLisoV2'    : '(passingMVA94XwpLisoV2 == 1)',
+    'passingMVA94XwpLnoisoV2'  : '(passingMVA94XwpLnoisoV2 == 1)',
+    'passingMVA94XwpHZZisoV2'  : '(passingMVA94XwpHZZisoV2 == 1)',
 
-    'passingVeto94X'    : '(passingVeto94X   == 1)',
-    'passingLoose94X'   : '(passingLoose94X  == 1)',
-    'passingMedium94X'  : '(passingMedium94X == 1)',
-    'passingTight94X'   : '(passingTight94X  == 1)',
-    'passingMVA94Xwp80iso' : '(passingMVA94Xwp80iso == 1)',
-    'passingMVA94Xwp90iso' : '(passingMVA94Xwp90iso == 1)',
-    'passingMVA94Xwp80noiso' : '(passingMVA94Xwp80noiso == 1)',
-    'passingMVA94Xwp90noiso' : '(passingMVA94Xwp90noiso == 1)',
+
     }
 
 baseOutDir = 'results/Legacy2016/tnpEleID/runAll/'
@@ -77,9 +75,9 @@ weightName = 'weights_2016_runAll.totWeight'
 if not samplesDef['mcNom' ] is None: samplesDef['mcNom' ].set_weight(weightName)
 if not samplesDef['mcAlt' ] is None: samplesDef['mcAlt' ].set_weight(weightName)
 if not samplesDef['tagSel'] is None: samplesDef['tagSel'].set_weight(weightName)
-if not samplesDef['mcNom' ] is None: samplesDef['mcNom' ].set_puTree('/eos/cms/store/group/phys_egamma/soffi/TnP/ntuples_04162018-Legacy2016/Legacy16_V1/PU/mc/DY_madgraph_Moriond17_ele.pu.puTree.root')
-if not samplesDef['mcAlt' ] is None: samplesDef['mcAlt' ].set_puTree('/eos/cms/store/group/phys_egamma/soffi/TnP/ntuples_04162018-Legacy2016/Legacy16_V1/PU/mc/DY_amcatnlo_Moriond17_ele.pu.puTree.root')
-if not samplesDef['tagSel'] is None: samplesDef['tagSel'].set_puTree('/eos/cms/store/group/phys_egamma/soffi/TnP/ntuples_04162018-Legacy2016/Legacy16_V1/PU/mc/DY_madgraph_Moriond17_ele.pu.puTree.root')
+if not samplesDef['mcNom' ] is None: samplesDef['mcNom' ].set_puTree('/eos/cms/store/group/phys_egamma/swmukher/egmNtuple_V2ID_2016/PU/DY_madgraph_Moriond17_ele.pu.puTree.root')
+if not samplesDef['mcAlt' ] is None: samplesDef['mcAlt' ].set_puTree('/eos/cms/store/group/phys_egamma/swmukher/egmNtuple_V2ID_2016/PU/DY_amcatnlo_Moriond17_ele.pu.puTree.root')
+if not samplesDef['tagSel'] is None: samplesDef['tagSel'].set_puTree('/eos/cms/store/group/phys_egamma/swmukher/egmNtuple_V2ID_2016/PU/DY_madgraph_Moriond17_ele.pu.puTree.root')
 
 
 #############################################################
