@@ -20,7 +20,7 @@ for sName in tnpSamples.Data2018_102X.keys():
     for tree in trees:
 #        dirout =  '/eos/cms/store/group/phys_egamma/swmukher/ntuple_2017_v2/PU-wrt2018Data/'
 #        dirout =  '/eos/cms/store/group/phys_egamma/swmukher/tnp/ID_V2_2017/PU-wrt2018Data/' #this has to be used for reco sf tree
-        dirout = '/eos/cms/store/group/phys_egamma/swmukher/ecal_noise/ECAL_NOISE/PU/'
+        dirout = '/eos/cms/store/group/phys_egamma/swmukher/rereco2018/ECAL_NOISE/'
         mkdir(dirout)
         
         if   puType == 0 : sample.set_puTree( dirout + '%s_%s.pu.puTree.root'   % (sample.name,tree) )

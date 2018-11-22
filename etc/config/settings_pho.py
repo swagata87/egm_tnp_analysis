@@ -21,15 +21,15 @@ import etc.inputs.tnpSampleDef as tnpSamples
 tnpTreeDir = 'tnpPhoIDs'
 
 samplesDef = {
-    'data'   : tnpSamples.Data2018_102X['data_Run2018Av123'].clone(),
-    'mcNom'  : tnpSamples.Data2018_102X['DY_RelValZEE'].clone(),
-    'mcAlt'  : tnpSamples.Data2018_102X['DY_RelValZEE'].clone(),
-    'tagSel' : tnpSamples.Data2018_102X['DY_RelValZEE'].clone(),
+    'data'   : tnpSamples.Data2018_102X['data_Run2018A'].clone(),
+    'mcNom'  : tnpSamples.Data2018_102X['DY_MG'].clone(),
+    'mcAlt'  : tnpSamples.Data2018_102X['DY_powheg'].clone(),
+    'tagSel' : tnpSamples.Data2018_102X['DY_MG'].clone(),
 }
 ## can add data sample easily
-samplesDef['data'].add_sample( tnpSamples.Data2018_102X['data_Run2018Bv12'] )
-samplesDef['data'].add_sample( tnpSamples.Data2018_102X['data_Run2018Cv123'] )
-samplesDef['data'].add_sample( tnpSamples.Data2018_102X['data_Run2018Dv2'] )
+samplesDef['data'].add_sample( tnpSamples.Data2018_102X['data_Run2018B'] )
+samplesDef['data'].add_sample( tnpSamples.Data2018_102X['data_Run2018C'] )
+#samplesDef['data'].add_sample( tnpSamples.Data2018_102X['data_Run2018Dv2'] )
 #samplesDef['data'].add_sample( tnpSamples.Moriond18_94X['data_Run2017F'] )
 
 ## some sample-based cuts... general cuts defined here after
@@ -61,9 +61,9 @@ weightName = 'weights_2018_runABCD.totWeight'
 if not samplesDef['mcNom' ] is None: samplesDef['mcNom' ].set_weight(weightName)
 if not samplesDef['mcAlt' ] is None: samplesDef['mcAlt' ].set_weight(weightName)
 if not samplesDef['tagSel'] is None: samplesDef['tagSel'].set_weight(weightName)
-if not samplesDef['mcNom' ] is None: samplesDef['mcNom' ].set_puTree('/eos/cms/store/group/phys_egamma/swmukher/ecal_noise/ECAL_NOISE/PU/DY_RelValZEE_pho.pu.puTree.root')
-if not samplesDef['mcAlt' ] is None: samplesDef['mcAlt' ].set_puTree('/eos/cms/store/group/phys_egamma/swmukher/ecal_noise/ECAL_NOISE/PU/DY_RelValZEE_pho.pu.puTree.root')
-if not samplesDef['tagSel'] is None: samplesDef['tagSel'].set_puTree('/eos/cms/store/group/phys_egamma/swmukher/ecal_noise/ECAL_NOISE/PU/DY_RelValZEE_pho.pu.puTree.root')
+if not samplesDef['mcNom' ] is None: samplesDef['mcNom' ].set_puTree('/eos/cms/store/group/phys_egamma/swmukher/rereco2018/ECAL_NOISE/DY_MG_pho.pu.puTree.root')
+if not samplesDef['mcAlt' ] is None: samplesDef['mcAlt' ].set_puTree('/eos/cms/store/group/phys_egamma/swmukher/rereco2018/ECAL_NOISE/DY_powheg_pho.pu.puTree.root')
+if not samplesDef['tagSel'] is None: samplesDef['tagSel'].set_puTree('/eos/cms/store/group/phys_egamma/swmukher/rereco2018/ECAL_NOISE/DY_MG_pho.pu.puTree.root')
 
 
 #############################################################
