@@ -22,9 +22,9 @@ tnpTreeDir = 'tnpPhoIDs'
 
 samplesDef = {
     'data'   : tnpSamples.Data2018_102X['data_Run2018A'].clone(),
-    'mcNom'  : tnpSamples.Data2018_102X['DY_MG'].clone(),
-    'mcAlt'  : tnpSamples.Data2018_102X['DY_powheg'].clone(),
-    'tagSel' : tnpSamples.Data2018_102X['DY_MG'].clone(),
+    'mcNom'  : tnpSamples.Data2018_102X['DY_powheg'].clone(),
+    'mcAlt'  : tnpSamples.Data2018_102X['DY_MG'].clone(),
+    'tagSel' : tnpSamples.Data2018_102X['DY_powheg'].clone(),
 }
 ## can add data sample easily
 samplesDef['data'].add_sample( tnpSamples.Data2018_102X['data_Run2018B'] )
@@ -61,9 +61,9 @@ weightName = 'weights_2018_runABCD.totWeight'
 if not samplesDef['mcNom' ] is None: samplesDef['mcNom' ].set_weight(weightName)
 if not samplesDef['mcAlt' ] is None: samplesDef['mcAlt' ].set_weight(weightName)
 if not samplesDef['tagSel'] is None: samplesDef['tagSel'].set_weight(weightName)
-if not samplesDef['mcNom' ] is None: samplesDef['mcNom' ].set_puTree('/eos/cms/store/group/phys_egamma/swmukher/rereco2018/ECAL_NOISE/DY_MG_pho.pu.puTree.root')
-if not samplesDef['mcAlt' ] is None: samplesDef['mcAlt' ].set_puTree('/eos/cms/store/group/phys_egamma/swmukher/rereco2018/ECAL_NOISE/DY_powheg_pho.pu.puTree.root')
-if not samplesDef['tagSel'] is None: samplesDef['tagSel'].set_puTree('/eos/cms/store/group/phys_egamma/swmukher/rereco2018/ECAL_NOISE/DY_MG_pho.pu.puTree.root')
+if not samplesDef['mcNom' ] is None: samplesDef['mcNom' ].set_puTree('/eos/cms/store/group/phys_egamma/swmukher/rereco2018/ECAL_NOISE/DY_powheg_pho.pu.puTree.root')
+if not samplesDef['mcAlt' ] is None: samplesDef['mcAlt' ].set_puTree('/eos/cms/store/group/phys_egamma/swmukher/rereco2018/ECAL_NOISE/DY_MG_pho.pu.puTree.root')
+if not samplesDef['tagSel'] is None: samplesDef['tagSel'].set_puTree('/eos/cms/store/group/phys_egamma/swmukher/rereco2018/ECAL_NOISE/DY_powheg_pho.pu.puTree.root')
 
 
 #############################################################
