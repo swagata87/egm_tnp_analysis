@@ -29,7 +29,7 @@ samplesDef = {
 ## can add data sample easily
 samplesDef['data'].add_sample( tnpSamples.Data2018_102X['data_Run2018B'] )
 samplesDef['data'].add_sample( tnpSamples.Data2018_102X['data_Run2018C'] )
-#samplesDef['data'].add_sample( tnpSamples.Data2018_102X['data_Run2018Dv2'] )
+samplesDef['data'].add_sample( tnpSamples.Data2018_102X['data_Run2018D'] )
 #samplesDef['data'].add_sample( tnpSamples.Moriond18_94X['data_Run2017F'] )
 
 ## some sample-based cuts... general cuts defined here after

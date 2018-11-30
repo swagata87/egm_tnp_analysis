@@ -29,7 +29,7 @@ Data2018_102X = {
 
     'data_Run2018C' : tnpSample('data_Run2018C' , eos2018Data_102X_EcalNoiseFix_200kRelVal + 'RunC.root' , lumi = 6.382),
 
-#    'data_Run2018Dv2' : tnpSample('data_Run2018Dv2' , eos2018Data_102X_EcalNoiseFix_200kRelVal + 'data/Prompt2018_RunD_v2.root' , lumi = 24.1), 
+    'data_Run2018D' : tnpSample('data_Run2018D' , eos2018Data_102X_EcalNoiseFix_200kRelVal + 'RunD.root' , lumi = 29.181), 
 
 
     }
