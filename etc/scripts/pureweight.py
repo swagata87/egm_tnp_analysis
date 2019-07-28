@@ -15,10 +15,10 @@ for sName in tnpSamples.Moriond18_94X.keys():
     
     trees = {}
     trees['ele'] = 'tnpEleIDs'
-    trees['pho'] = 'tnpPhoIDs'
+#    trees['pho'] = 'tnpPhoIDs'
 #    trees['rec'] = 'GsfElectronToSC'
     for tree in trees:
-        dirout =  '/eos/cms/store/group/phys_egamma/swmukher/ntuple_2017_v2/PU/'
+        dirout =  '/eos/cms/store/group/phys_egamma/swmukher/UL/ntuple_2017_UltraLegacy/PU/'
         mkdir(dirout)
         
         if   puType == 0 : sample.set_puTree( dirout + '%s_%s.pu.puTree.root'   % (sample.name,tree) )
