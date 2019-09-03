@@ -98,6 +98,8 @@ def tuneCuts( bindef, cuts ) :
         return
     
     for ibin in cuts.keys():
+        print 'ibin', ibin
+        print 'cuts.keys()', cuts.keys()
         cut0 = bindef['bins'][ibin]['cut']
         cut1 = cuts[ibin]
         bindef['bins'][ibin]['cut'] = '%s && %s ' % (cut0,cut1)

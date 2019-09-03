@@ -7,17 +7,28 @@ cutpass90 = '(( abs(probe_sc_eta) < 0.8 && probe_Ele_nonTrigMVA > %f ) ||  ( abs
 
 # flag to be Tested
 flags = {
-    'passingVeto94X'    : '(passingVeto94X   == 1)',
-    'passingLoose94X'   : '(passingLoose94X  == 1)',
-    'passingMedium94X'  : '(passingMedium94X == 1)',
-    'passingTight94X'   : '(passingTight94X  == 1)',
+    'passingVeto94XV2'    : '(passingVeto94XV2   == 1)',
+    'passingLoose94XV2'   : '(passingLoose94XV2  == 1)',
+    'passingMedium94XV2'  : '(passingMedium94XV2 == 1)',
+    'passingTight94XV2'   : '(passingTight94XV2  == 1)',
+    'passingMVA94XwpLisoV2' : '(passingMVA94XwpLisoV2 ==1)',
+    'passingMVA94Xwp80isoV2': '(passingMVA94Xwp80isoV2 ==1)',
+    'passingMVA94Xwp90isoV2': '(passingMVA94Xwp90isoV2 ==1)',
+    'passingMVA94XwpHZZisoV2': '(passingMVA94XwpHZZisoV2 ==1)',
+
     'passingMVA94Xwp80iso' : '(passingMVA94Xwp80iso == 1)',
     'passingMVA94Xwp90iso' : '(passingMVA94Xwp90iso == 1)',
     'passingMVA94Xwp80noiso' : '(passingMVA94Xwp80noiso == 1)',
     'passingMVA94Xwp90noiso' : '(passingMVA94Xwp90noiso == 1)',
     }
 
-baseOutDir = 'results/Data2018/tnpEleID/runA/'
+#baseOutDir = 'my_results_Run3_2024'
+#baseOutDir = 'my_results_Run3_2023_SIG_ROC'
+#baseOutDir = 'my_results_Run3_2023_SIG_vertexBins'
+#baseOutDir = 'my_results_Run3_2023_BKG_vertexBins'
+baseOutDir = 'my_results_Run2_2018_SIG_vertexBins_lowPU'
+#baseOutDir = 'my_results_Run2_2018_BKG_ROC'
+#baseOutDir = 'my_results_Run3'
 
 #############################################################
 ########## samples definition  - preparing the samples
@@ -28,10 +39,12 @@ import etc.inputs.tnpSampleDef as tnpSamples
 tnpTreeDir = 'tnpEleIDs'
 
 samplesDef = {
-    'data'   : tnpSamples.Data2018_10_1_X['data_2018_RunA_v123'].clone(),
-    'mcNom'  : tnpSamples.Data2018_10_1_X['DY_madgraph_2018_30p'].clone(),
-    'mcAlt'  : tnpSamples.Data2018_10_1_X['DY_madgraph_2018_30p'].clone(),
-    'tagSel' : tnpSamples.Data2018_10_1_X['DY_madgraph_2018_30p'].clone(),
+#    'data'   : tnpSamples.Data2018_10_1_X['DY_run3'].clone(),
+    'data'   : tnpSamples.Data2018_10_1_X['DY_run2'].clone(),
+    'mcNom'  : tnpSamples.Data2018_10_1_X['DY_run2'].clone(),
+#    'mcNom2'  : tnpSamples.Data2018_10_1_X['DY_run3'].clone(),
+#    'mcAlt'  : tnpSamples.Data2018_10_1_X['DY_run3'].clone(),
+    'tagSel' : tnpSamples.Data2018_10_1_X['DY_run2'].clone(),
 }
 
 ## can add data sample easily
@@ -47,12 +60,14 @@ samplesDef = {
 #samplesDef['data'  ].set_cut('run >= 273726')
 samplesDef['data' ].set_tnpTree(tnpTreeDir)
 if not samplesDef['mcNom' ] is None: samplesDef['mcNom' ].set_tnpTree(tnpTreeDir)
-if not samplesDef['mcAlt' ] is None: samplesDef['mcAlt' ].set_tnpTree(tnpTreeDir)
+#if not samplesDef['mcNom2' ] is None: samplesDef['mcNom2' ].set_tnpTree(tnpTreeDir)
+#if not samplesDef['mcAlt' ] is None: samplesDef['mcAlt' ].set_tnpTree(tnpTreeDir)
 if not samplesDef['tagSel'] is None: samplesDef['tagSel'].set_tnpTree(tnpTreeDir)
 
 if not samplesDef['mcNom' ] is None: samplesDef['mcNom' ].set_mcTruth()
-if not samplesDef['mcAlt' ] is None: samplesDef['mcAlt' ].set_mcTruth()
-if not samplesDef['tagSel'] is None: samplesDef['tagSel'].set_mcTruth()
+#if not samplesDef['mcNom2' ] is None: samplesDef['mcNom2' ].set_mcTruth()
+#if not samplesDef['mcAlt' ] is None: samplesDef['mcAlt' ].set_mcTruth()
+#if not samplesDef['tagSel'] is None: samplesDef['tagSel'].set_mcTruth()
 if not samplesDef['tagSel'] is None:
     samplesDef['tagSel'].rename('mcAltSel_DY_madgraph')
     samplesDef['tagSel'].set_cut('tag_Ele_pt > 37') #canceled non trig MVA cut
@@ -64,24 +79,28 @@ if not samplesDef['tagSel'] is None:
 #if not samplesDef['tagSel'] is None: samplesDef['tagSel'].set_weight(weightName)
 
 ## set MC weight, can use several pileup rw for different data taking periods
-weightName = 'weights_2018_runAB.totWeight'
+#weightName = 'weights_2018_runAB.totWeight'
+weightName = 'weight'
 if not samplesDef['mcNom' ] is None: samplesDef['mcNom' ].set_weight(weightName)
-if not samplesDef['mcAlt' ] is None: samplesDef['mcAlt' ].set_weight(weightName)
+#if not samplesDef['mcNom2' ] is None: samplesDef['mcNom2' ].set_weight(weightName)
+#if not samplesDef['mcAlt' ] is None: samplesDef['mcAlt' ].set_weight(weightName)
 if not samplesDef['tagSel'] is None: samplesDef['tagSel'].set_weight(weightName)
-if not samplesDef['mcNom' ] is None: samplesDef['mcNom' ].set_puTree('/eos/cms/store/group/phys_egamma/soffi/TnP/ntuples_06152018/2018Data_1/PU/DY_madgraph_2018_30p_ele.pu.puTree.root')
-if not samplesDef['mcAlt' ] is None: samplesDef['mcAlt' ].set_puTree('/eos/cms/store/group/phys_egamma/soffi/TnP/ntuples_06152018/2018Data_1/PU/DY_madgraph_2018_30p_ele.pu.puTree.root')
-if not samplesDef['tagSel'] is None: samplesDef['tagSel'].set_puTree('/eos/cms/store/group/phys_egamma/soffi/TnP/ntuples_06152018/2018Data_1/PU/DY_madgraph_2018_30p_ele.pu.puTree.root')
+#if not samplesDef['mcNom' ] is None: samplesDef['mcNom' ].set_puTree('/eos/cms/store/group/phys_egamma/soffi/TnP/ntuples_06152018/2018Data_1/PU/DY_madgraph_2018_30p_ele.pu.puTree.root')
+#if not samplesDef['mcAlt' ] is None: samplesDef['mcAlt' ].set_puTree('/eos/cms/store/group/phys_egamma/soffi/TnP/ntuples_06152018/2018Data_1/PU/DY_madgraph_2018_30p_ele.pu.puTree.root')
+#if not samplesDef['tagSel'] is None: samplesDef['tagSel'].set_puTree('/eos/cms/store/group/phys_egamma/soffi/TnP/ntuples_06152018/2018Data_1/PU/DY_madgraph_2018_30p_ele.pu.puTree.root')
 
 
 #############################################################
 ########## bining definition  [can be nD bining]
 #############################################################
 biningDef = [
-   { 'var' : 'el_sc_eta' , 'type': 'float', 'bins': [-2.5,-2.0,-1.566,-1.4442, -0.8, 0.0, 0.8, 1.4442, 1.566, 2.0, 2.5] },
-   { 'var' : 'el_pt' , 'type': 'float', 'bins': [10,20,35,50,100,200,500] },
-
-
+   { 'var' : 'fabs(el_sc_eta)' , 'type': 'float', 'bins': [0,1.4,2.5] },
+#  { 'var' : 'truePU' , 'type': 'float', 'bins': [55,60,65,70,75,80,85] },
+   { 'var' : 'truePU' , 'type': 'float', 'bins': [30,35,40,45,50,55,60] },
 ]
+
+#   { 'var' : 'el_pt' , 'type': 'float', 'bins': [10,30,60,100,500] },
+# { 'var' : 'el_pt' , 'type': 'float', 'bins': [10,500,600,700,800,900,1000] },
 
 #############################################################
 ########## Cuts definition for all samples

@@ -1,4 +1,3 @@
-
 ### python specific import
 import argparse
 import os
@@ -109,12 +108,14 @@ if args.createHists:
 ####################################################################
 ##### Actual Fitter
 ####################################################################
+#sampleToFit = tnpConf.samplesDef['mcNom']
 sampleToFit = tnpConf.samplesDef['data']
 if sampleToFit is None:
     print '[tnpEGM_fitter, prelim checks]: sample (data or MC) not available... check your settings'
     sys.exit(1)
 
 sampleMC = tnpConf.samplesDef['mcNom']
+#sampleMC = tnpConf.samplesDef['mcNom2']
 
 if sampleMC is None:
     print '[tnpEGM_fitter, prelim checks]: MC sample not available... check your settings'
@@ -123,9 +124,10 @@ for s in tnpConf.samplesDef.keys():
     sample =  tnpConf.samplesDef[s]
     if sample is None: continue
     setattr( sample, 'mcRef'     , sampleMC )
+#    setattr( sample, 'mcRef'     , sampleToFit )
     setattr( sample, 'nominalFit', '%s/%s_%s.nominalFit.root' % ( outputDirectory , sample.name, args.flag ) )
-    setattr( sample, 'altSigFit' , '%s/%s_%s.altSigFit.root'  % ( outputDirectory , sample.name, args.flag ) )
-    setattr( sample, 'altBkgFit' , '%s/%s_%s.altBkgFit.root'  % ( outputDirectory , sample.name, args.flag ) )
+#    setattr( sample, 'altSigFit' , '%s/%s_%s.altSigFit.root'  % ( outputDirectory , sample.name, args.flag ) )
+#    setattr( sample, 'altBkgFit' , '%s/%s_%s.altBkgFit.root'  % ( outputDirectory , sample.name, args.flag ) )
 
 
 
@@ -146,18 +148,35 @@ if  args.doFit:
 
     args.doPlot = True
      
+
+#if args.mcSig :
+#    sampleToFit = tnpConf.samplesDef['mcNom2']
+
+#if  args.doFit:
+#    sampleToFit.dump()
+#    for ib in range(len(tnpBins['bins'])):
+#        if (args.binNumber >= 0 and ib == args.binNumber) or args.binNumber < 0:
+#            if args.altSig:                 
+#                tnpRoot.histFitterAltSig(  sampleToFit, tnpBins['bins'][ib], tnpConf.tnpParAltSigFit )
+#            elif args.altBkg:
+#                tnpRoot.histFitterAltBkg(  sampleToFit, tnpBins['bins'][ib], tnpConf.tnpParAltBkgFit )
+#            else:
+#                tnpRoot.histFitterNominal( sampleToFit, tnpBins['bins'][ib], tnpConf.tnpParNomFit )
+
+#    args.doPlot = True
+     
 ####################################################################
 ##### dumping plots
 ####################################################################
 if  args.doPlot:
     fileName = sampleToFit.nominalFit
     fitType  = 'nominalFit'
-    if args.altSig : 
-        fileName = sampleToFit.altSigFit
-        fitType  = 'altSigFit'
-    if args.altBkg : 
-        fileName = sampleToFit.altBkgFit
-        fitType  = 'altBkgFit'
+#    if args.altSig : 
+#        fileName = sampleToFit.altSigFit
+#        fitType  = 'altSigFit'
+#    if args.altBkg : 
+#        fileName = sampleToFit.altBkgFit
+#        fitType  = 'altBkgFit'
         
     plottingDir = '%s/plots/%s/%s' % (outputDirectory,sampleToFit.name,fitType)
     if not os.path.exists( plottingDir ):
@@ -178,17 +197,17 @@ if  args.doPlot:
 if args.sumUp:
     sampleToFit.dump()
     info = {
-        'data'        : sampleToFit.histFile,
-        'dataNominal' : sampleToFit.nominalFit,
-        'dataAltSig'  : sampleToFit.altSigFit ,
-        'dataAltBkg'  : sampleToFit.altBkgFit ,
+#        'mcNominal2'  : sampleToFit.mcRef.histFile,
+#        'dataNominal' : sampleToFit.nominalFit,
+#        'dataAltSig'  : sampleToFit.altSigFit ,
+#        'dataAltBkg'  : sampleToFit.altBkgFit ,
         'mcNominal'   : sampleToFit.mcRef.histFile,
-        'mcAlt'       : None,
+#        'mcAlt'       : None,
         'tagSel'      : None
         }
 
-    if not tnpConf.samplesDef['mcAlt' ] is None:
-        info['mcAlt'    ] = tnpConf.samplesDef['mcAlt' ].histFile
+#    if not tnpConf.samplesDef['mcAlt' ] is None:
+#        info['mcAlt'    ] = tnpConf.samplesDef['mcAlt' ].histFile
     if not tnpConf.samplesDef['tagSel'] is None:
         info['tagSel'   ] = tnpConf.samplesDef['tagSel'].histFile
 
@@ -197,11 +216,13 @@ if args.sumUp:
     fOut = open( effFileName,'w')
     
     for ib in range(len(tnpBins['bins'])):
+        print ("tnpRoot = ", tnpRoot)
         effis = tnpRoot.getAllEffi( info, tnpBins['bins'][ib] )
 
         ### formatting assuming 2D bining -- to be fixed        
         v1Range = tnpBins['bins'][ib]['title'].split(';')[1].split('<')
         v2Range = tnpBins['bins'][ib]['title'].split(';')[2].split('<')
+        print ('v2Range = ', v2Range)
         if ib == 0 :
             astr = '### var1 : %s' % v1Range[1]
             print astr
@@ -210,15 +231,17 @@ if args.sumUp:
             print astr
             fOut.write( astr + '\n' )
             
-        astr =  '%+8.3f\t%+8.3f\t%+8.3f\t%+8.3f\t%5.3f\t%5.3f\t%5.3f\t%5.3f\t%5.3f\t%5.3f\t%5.3f\t%5.3f' % (
+#        astr =  '%+8.3f\t%+8.3f\t%+8.3f\t%+8.3f\t%5.3f\t%5.3f\t%5.3f\t%5.3f' % (
+        astr =  '%+8.3f\t%+8.3f\t%+8.3f\t%+8.3f\t%5.3f\t%5.3f' % (
             float(v1Range[0]), float(v1Range[2]),
             float(v2Range[0]), float(v2Range[2]),
-            effis['dataNominal'][0],effis['dataNominal'][1],
+#            effis['dataNominal'][0],effis['dataNominal'][1],
             effis['mcNominal'  ][0],effis['mcNominal'  ][1],
-            effis['dataAltBkg' ][0],
-            effis['dataAltSig' ][0],
-            effis['mcAlt' ][0],
-            effis['tagSel'][0],
+#            effis['mcNominal2'  ][0],effis['mcNominal2'  ][1],
+#            effis['dataAltBkg' ][0],
+#            effis['dataAltSig' ][0],
+#            effis['mcAlt' ][0],
+#            effis['tagSel'][0],
             )
         print astr
         fOut.write( astr + '\n' )
@@ -226,4 +249,4 @@ if args.sumUp:
 
     print 'Effis saved in file : ',  effFileName
     import libPython.EGammaID_scaleFactors as egm_sf
-    egm_sf.doEGM_SFs(effFileName,sampleToFit.lumi)
+#    egm_sf.doEGM_SFs(effFileName,sampleToFit.lumi)

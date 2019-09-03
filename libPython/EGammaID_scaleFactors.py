@@ -176,7 +176,7 @@ def EffiGraph1D(effDataList, effMCList, sfList ,nameout, xAxis = 'pT', yAxis = '
         grBinsSF.GetHistogram().GetYaxis().SetTitleOffset(1)
             
         grBinsEffData.GetHistogram().GetYaxis().SetTitleOffset(1)
-        grBinsEffData.GetHistogram().GetYaxis().SetTitle("Data efficiency" )
+        grBinsEffData.GetHistogram().GetYaxis().SetTitle(" efficiency" )
         grBinsEffData.GetHistogram().GetYaxis().SetRangeUser( effiMin, effiMax )
 
             
@@ -298,8 +298,8 @@ def doEGM_SFs(filein, lumi, axis = ['pT','eta'] ):
             ptKey  = ( float(numbers[2]), min(500,float(numbers[3])) )
         
             myeff = efficiency(ptKey,etaKey,
-                               float(numbers[4]),float(numbers[5]),float(numbers[6] ),float(numbers[7] ),
-                               float(numbers[8]),float(numbers[9]),float(numbers[10]),float(numbers[11]) )
+                               float(numbers[4]),float(numbers[5]) )
+#                               float(numbers[8]),float(numbers[9]),float(numbers[10]),float(numbers[11]) )
 #                           float(numbers[8]),float(numbers[9]),float(numbers[10]), -1 )
 
             effGraph.addEfficiency(myeff)

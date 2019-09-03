@@ -52,9 +52,9 @@ weightName = 'weights_2016_runC.totWeight'
 if not samplesDef['mcNom' ] is None: samplesDef['mcNom' ].set_weight(weightName)
 if not samplesDef['mcAlt' ] is None: samplesDef['mcAlt' ].set_weight(weightName)
 if not samplesDef['tagSel'] is None: samplesDef['tagSel'].set_weight(weightName)
-if not samplesDef['mcNom' ] is None: samplesDef['mcNom' ].set_puTree('etc/inputs/ichep2016/mc_DY_madgraph_ele.puTree.root')
-if not samplesDef['mcAlt' ] is None: samplesDef['mcAlt' ].set_puTree('etc/inputs/ichep2016/mc_DY_amcatnlo_ele.puTree.root')
-if not samplesDef['tagSel'] is None: samplesDef['tagSel'].set_puTree('etc/inputs/ichep2016/mc_DY_madgraph_ele.puTree.root')
+#if not samplesDef['mcNom' ] is None: samplesDef['mcNom' ].set_puTree('etc/inputs/ichep2016/mc_DY_madgraph_ele.puTree.root')
+#if not samplesDef['mcAlt' ] is None: samplesDef['mcAlt' ].set_puTree('etc/inputs/ichep2016/mc_DY_amcatnlo_ele.puTree.root')
+#if not samplesDef['tagSel'] is None: samplesDef['tagSel'].set_puTree('etc/inputs/ichep2016/mc_DY_madgraph_ele.puTree.root')
 
 
 #############################################################

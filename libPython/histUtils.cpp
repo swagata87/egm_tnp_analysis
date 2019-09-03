@@ -1329,7 +1329,7 @@ static const char __pyx_k_maxWeight[] = "maxWeight";
 static const char __pyx_k_pair_mass[] = " pair_mass ";
 static const char __pyx_k_ValueError[] = "ValueError";
 static const char __pyx_k_cutBinList[] = "cutBinList";
-static const char __pyx_k_s_mcTrue_1[] = "%s && mcTrue==1";
+static const char __pyx_k_s_mcTrue_1[] = "%s && mcTrue==1"; // 0 for BKG, 1 for SIGNAL
 static const char __pyx_k_pair_mass_2[] = "pair_mass";
 static const char __pyx_k_s_Selection[] = "%s_Selection";
 static const char __pyx_k_s_s_f_s_1_0[] = "( %s ) * (%s < %f ? %s : 1.0 )";
