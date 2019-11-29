@@ -12,14 +12,14 @@ import efficiencyUtils as effUtil
 tdrstyle.setTDRStyle()
 
 
-effiMin = 0.2
-effiMax = 1.3
+effiMin = 0.5
+effiMax = 1.04
 
 #sfMin = 0.78
 #sfMax = 1.12
 
-sfMin = 0.79
-sfMax = 1.1
+sfMin = 0.88
+sfMax = 1.22
 
 
 def isFloat( myFloat ):
@@ -164,8 +164,7 @@ def EffiGraph1D(effDataList, effMCList, sfList ,nameout, xAxis = 'pT', yAxis = '
 
         grBinsEffData.GetHistogram().GetXaxis().SetLimits(xMin,xMax)
         grBinsSF.GetHistogram()     .GetXaxis().SetLimits(xMin,xMax)
-#        grBinsSF.GetHistogram().SetMinimum(sfMin)
-        grBinsSF.GetHistogram().SetMinimum(0.8)
+        grBinsSF.GetHistogram().SetMinimum(sfMin)
         grBinsSF.GetHistogram().SetMaximum(sfMax)
         
         grBinsSF.GetHistogram().GetXaxis().SetTitleOffset(1)
@@ -180,9 +179,9 @@ def EffiGraph1D(effDataList, effMCList, sfList ,nameout, xAxis = 'pT', yAxis = '
         grBinsSF.GetHistogram().GetYaxis().SetTitleOffset(1)
             
         grBinsEffData.GetHistogram().GetYaxis().SetTitleOffset(1)
-        grBinsEffData.GetHistogram().GetYaxis().SetTitle("Data efficiency" )
-#        grBinsEffData.GetHistogram().GetYaxis().SetRangeUser( effiMin, effiMax )
-        grBinsEffData.GetHistogram().GetYaxis().SetRangeUser( 0.15,1.35)
+        grBinsEffData.GetHistogram().GetYaxis().SetTitle("Data efficiency" ) 
+ #       grBinsEffData.GetHistogram().GetYaxis().SetRangeUser( effiMin, effiMax )
+        grBinsEffData.GetHistogram().GetYaxis().SetRangeUser( 0.5,1.04)
 
             
         ### to avoid loosing the TGraph keep it in memory by adding it to a list
@@ -211,10 +210,10 @@ def EffiGraph1D(effDataList, effMCList, sfList ,nameout, xAxis = 'pT', yAxis = '
         listOfTGraph1[use_igr].SetMarkerColor(graphColors[use_igr])
         if not listOfMC[use_igr] is None:
             listOfMC[use_igr].SetLineColor(graphColors[use_igr])
-            #        listOfTGraph1[use_igr].GetHistogram().SetMinimum(effiMin)
-        listOfTGraph1[use_igr].GetHistogram().SetMinimum(0.15)
+#        listOfTGraph1[use_igr].GetHistogram().SetMinimum(effiMin)
+        listOfTGraph1[use_igr].GetHistogram().SetMinimum(0.5)
 #        listOfTGraph1[use_igr].GetHistogram().SetMaximum(effiMax)
-        listOfTGraph1[use_igr].GetHistogram().SetMaximum(1.35)
+        listOfTGraph1[use_igr].GetHistogram().SetMaximum(1.04)
         p1.cd()
         
         listOfTGraph1[use_igr].Draw(option)

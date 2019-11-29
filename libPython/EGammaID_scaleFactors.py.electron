@@ -18,7 +18,7 @@ effiMax = 1.3
 #sfMin = 0.78
 #sfMax = 1.12
 
-sfMin = 0.79
+sfMin = 0.8
 sfMax = 1.1
 
 
@@ -164,8 +164,7 @@ def EffiGraph1D(effDataList, effMCList, sfList ,nameout, xAxis = 'pT', yAxis = '
 
         grBinsEffData.GetHistogram().GetXaxis().SetLimits(xMin,xMax)
         grBinsSF.GetHistogram()     .GetXaxis().SetLimits(xMin,xMax)
-#        grBinsSF.GetHistogram().SetMinimum(sfMin)
-        grBinsSF.GetHistogram().SetMinimum(0.8)
+        grBinsSF.GetHistogram().SetMinimum(sfMin)
         grBinsSF.GetHistogram().SetMaximum(sfMax)
         
         grBinsSF.GetHistogram().GetXaxis().SetTitleOffset(1)
