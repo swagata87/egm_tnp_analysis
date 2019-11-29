@@ -6,9 +6,9 @@ if [[ `uname -n` == *"lxplus"* ]]; then
     optVer=x86_64-slc6-gcc48-opt
 
 ## install modern version of ROOT
-    LCG=/afs/cern.ch/sw/lcg/
+    LCG=/cvmfs/sft.cern.ch/lcg/
     ROOTSYS=$LCG/app/releases/ROOT/6.06.06/$optVer/root/
-    . $LCG/external/gcc/4.8.0/$optVer/setup.sh
+    . $LCG/external/gcc/4.8.4/$optVer/setup.sh
     . $ROOTSYS/bin/thisroot.sh
 
 ## add python lib
