@@ -12,13 +12,13 @@ eosMoriond18 = '/eos/cms/store/group/phys_egamma/asroy/Tag-and-Probe_Tree/UL2017
 Moriond18_94X = {
     ### MiniAOD TnP for IDs scale factors
     'DY_1j_madgraph'              : tnpSample('DY_1j_madgraph',
-                                       eosMoriond18 + 'mc_hs.root',
+                                       eosMoriond18 + 'mc_fs.root',
                                        isMC = True, nEvts =  -1 ),
 #    'DY_amcatnlo'                 : tnpSample('DY_amcatnlo',
 #                                       eosMoriond18 + 'DYJetsToLLM50amcatnloFXFX.root',
 #                                       isMC = True, nEvts =  -1 ),
     'DY_amcatnloext'                 : tnpSample('DY_amcatnloext',
-                                       eosMoriond18 + 'mc_hs.root',
+                                       eosMoriond18 + 'mc_fs.root',
                                        isMC = True, nEvts =  -1 ),
 
 
