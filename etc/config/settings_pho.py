@@ -47,7 +47,7 @@ if not samplesDef['mcAlt' ] is None: samplesDef['mcAlt' ].set_mcTruth()
 if not samplesDef['tagSel'] is None: samplesDef['tagSel'].set_mcTruth()
 if not samplesDef['tagSel'] is None:
     samplesDef['tagSel'].rename('mcAltSel_DY_madgraph')
-    samplesDef['tagSel'].set_cut('tag_Ele_pt > 35')
+    samplesDef['tagSel'].set_cut('tag_Ele_pt > 37')
 
 ## set MC weight, simple way (use tree weight) 
 #weightName = 'totWeight'
@@ -78,7 +78,7 @@ biningDef = [
 ########## Cuts definition for all samples
 #############################################################
 ### cut
-cutBase   = 'tag_Ele_pt > 30 && abs(tag_sc_eta) < 2.17'
+cutBase   = 'tag_Ele_pt > 35 && abs(tag_sc_eta) < 2.17'
 
 # can add addtionnal cuts for some bins (first check bin number using tnpEGM --checkBins)
 additionalCuts = { 
