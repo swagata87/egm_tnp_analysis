@@ -1,7 +1,19 @@
+import os
 import ROOT as rt
+
+libFiles = [ f for f in os.listdir('./libCpp/') if '.so' in f ]
+
 rt.gROOT.LoadMacro('./libCpp/histFitter.C+')
 rt.gROOT.LoadMacro('./libCpp/RooCBExGaussShape.cc+')
 rt.gROOT.LoadMacro('./libCpp/RooCMSShape.cc+')
+
+#if 'histFitter_C.so' in libFiles: rt.gSystem.Load('./libCpp/histFitter_C.so')
+#else: rt.gROOT.LoadMacro('./libCpp/histFitter.C+')
+#if 'RooCBExGaussShape_cc.so' in libFiles: rt.gSystem.Load('./libCpp/RooCBExGaussShape_cc.so')
+#else: rt.gROOT.LoadMacro('./libCpp/RooCBExGaussShape.cc+')
+#if 'RooCMSShape_cc.so' in libFiles: rt.gSystem.Load('./libCpp/RooCMSShape_cc.so')
+#else: rt.gROOT.LoadMacro('./libCpp/RooCMSShape.cc+')
+
 rt.gROOT.SetBatch(1)
 
 from ROOT import tnpFitter

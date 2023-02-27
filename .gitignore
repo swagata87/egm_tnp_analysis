@@ -1,0 +1,17 @@
+etc/config/*pyc
+etc/*pyc
+etc/inputs/*pyc
+libPython/*pyc
+
+libCpp/*.d
+libCpp/*.so
+libCpp/*.pcm
+
+# ignore results and condor logs
+results/
+condor/
+
+# ignore the condor submission scripts
+test.sh
+test.sub
+SubmitAll.sh
